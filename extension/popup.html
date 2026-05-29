@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>wtf am i staring at</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&family=Libre+Baskerville:ital@1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{width:320px;background:#6C6C6A;color:#E8CCD8;font-family:'Inter',sans-serif;overflow:hidden;position:relative}
+
+    .ascii-bg{position:fixed;top:-2px;right:-6px;font-size:5.5px;line-height:1.15;color:rgba(232,204,216,0.32);white-space:pre;pointer-events:none;font-family:monospace;letter-spacing:0;z-index:0;width:145px;overflow:hidden}
+
+    .top-bar{position:relative;z-index:1;padding:16px 18px 14px;display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid rgba(232,204,216,0.12)}
+    .wordmark{font-family:'Sorts Mill Goudy',serif;font-style:italic;font-size:13px;color:#E8CCD8;letter-spacing:0.02em;opacity:0.9}
+    .live{display:flex;align-items:center;gap:5px}
+    .live-dot{width:5px;height:5px;border-radius:50%;background:#E8CCD8;opacity:0.7;animation:lp 2s ease-in-out infinite}
+    @keyframes lp{0%,100%{opacity:0.7}50%{opacity:0.2}}
+    .live-label{font-size:9px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(232,204,216,0.5)}
+
+    .now-block{position:relative;z-index:1;padding:20px 18px 18px;border-bottom:1px solid rgba(232,204,216,0.12)}
+    .eyebrow{font-size:9px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(232,204,216,0.45);margin-bottom:9px}
+    .domain-name{font-family:'Sorts Mill Goudy',serif;font-style:italic;font-size:22px;color:#E8CCD8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
+    .meta-row{display:flex;align-items:center;gap:8px;margin-top:9px}
+    .cat-badge{font-size:9px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;padding:3px 8px;border-radius:3px;background:rgba(232,204,216,0.15);color:#E8CCD8;border:1px solid rgba(232,204,216,0.25)}
+    .timer-txt{font-size:11px;color:rgba(232,204,216,0.4)}
+    .timer-txt b{color:rgba(232,204,216,0.75);font-weight:400}
+
+    .list-block{position:relative;z-index:1;padding:16px 18px 14px}
+    .day-label{font-size:9px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(232,204,216,0.45);margin-bottom:12px}
+    .list-row{display:grid;grid-template-columns:16px 1fr auto;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(232,204,216,0.08)}
+    .list-row:last-child{border-bottom:none}
+    .rank{font-size:10px;color:rgba(232,204,216,0.2);text-align:right}
+    .rank.no1{color:#E8CCD8}
+    .site-col{min-width:0}
+    .site-label{font-family:'Libre Baskerville',serif;font-style:italic;font-size:12px;color:#E8CCD8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0.85}
+    .track{height:1px;background:rgba(232,204,216,0.12);margin-top:5px;overflow:hidden}
+    .fill{height:100%;background:#E8CCD8;opacity:0.45}
+    .site-dur{font-size:11px;color:rgba(232,204,216,0.6);white-space:nowrap}
+
+    .bottom-bar{position:relative;z-index:1;padding:12px 18px 14px;display:flex;align-items:center;justify-content:space-between;background:#E8CCD8}
+    .pending{font-size:10px;color:rgba(108,108,106,0.6)}
+    .pending b{color:#6C6C6A;font-weight:500}
+    .sync-btn{font-family:'Sorts Mill Goudy',serif;font-style:italic;font-size:12px;font-weight:600;background:#6C6C6A;border:none;color:#E8CCD8;padding:5px 16px;border-radius:3px;cursor:pointer;transition:opacity 0.15s;letter-spacing:0.01em}
+    .sync-btn:hover{opacity:0.85}
+    .sync-btn:disabled{opacity:0.4;cursor:default}
+
+    .empty{font-size:12px;color:rgba(232,204,216,0.3);padding:8px 0;font-style:italic}
+  </style>
+</head>
+<body>
+
+<div class="ascii-bg">⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡞⠉⠀⠉⢳⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢷⣀⢀⣆⢀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⣠⠞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⡀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢀⢣⡞⣡⡴⠖⠒⢶⣄⠀⠀⠀⠀⠀⠀⠙⢿⡆⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡉⣿⠀⡏⠀⠀⠀⠀⠙⣇⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠁⢻⡄⣷⠀⠀⠀⢀⡀⡿⠆⠀⠀⠀⠀⠀⣸⠋⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠰⠮⠻⣜⢧⡀⠀⠿⠟⠁⠀⠀⠀⠀⣠⣾⢵⣇⣤⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⢯⡳⣄⠀⠀⠀⠀⠀⢀⡾⠉⠀⠀⠈⢳⠛⠂⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⠻⣷⣄⠀⠀⠀⣼⠁⠀⢠⠄⠀⢈⣟⡁⠀
+⠀⠀⠀⠀⠀⠀⠀⢀⡴⣒⣩⣭⣝⣒⠮⣝⣧⣄⠀⣯⠀⠀⠹⠧⢴⡿⠄⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣎⣼⡋⠉⠈⠉⠙⠛⠶⣽⡻⣷⣿⡀⠀⠀⠀⢈⣁⣀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡗⣂⠀⠀⣀⡆⠀⠀⠀⠀⠈⠉⠙⠿⣆⠀⢠⡏⢁⢈⡆⠀
+⠀⠀⠀⠀⠀⠀⠀⠘⠳⠭⠯⠿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠈⢷⡈⢧⡈⠉⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣆⠁⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⠞⠛⠶⣄⠀⠀⢿⣆⣤⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠃⢠⠀⠀⡿⠀⠀⡸⣿⠰⠆⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣧⠀⠉⠉⠁⠀⡰⠃⣿⠀⠓⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⡀⠀⠀⠀⠀⠈⠙⠒⠒⠒⠋⠀⢰⢻⢀⣏⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⡴⠟⠁⠈⢙⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠋⣾⢰⡍⠀
+⠀⠀⠀⠀⠀⠀⠀⣸⠁⠀⠀⠀⠻⠟⠀⠀⠀⠀⠀⠀⠀⠀⠐⠁⣼⢇⠷⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢿⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣟⡘⠁⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠘⢧⡀⠀⠀⠀⠙⠿⢷⣶⣤⣤⡴⠶⣫⣿⠟⡬⠁⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠈⠓⢦⣀⠀⠀⠀⠀⠀⠀⣀⣤⣾⡿⣇⠛⠂⠀⠀⠀⠀
+⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠒⠒⠛⢋⣽⡿⡫⠶⠉⠀⠀⠀⠀⠀⠀
+⠀⠃⠤⢀⡀⣀⡀⣠⡄⠠⣶⡆⣀⡤⠖⣫⣾⣿⠻⠌⠋⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠈⠀⠉⠁⠙⠁⣠⡴⠚⣁⣴⣿⠟⣥⠝⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⡴⠞⠁⣠⣾⠿⣫⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢀⡴⠋⠀⣠⣾⠟⢡⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⣰⠟⠀⣠⡾⠋⠀⠀⡿⡆⠀⢀⡶⠛⠛⢶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣼⠃⠀⣴⠟⠀⠀⠀⢰⡇⡇⠀⠘⣇⣀⡔⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣸⠃⠀⣼⠃⠀⠀⠀⠀⢸⡇⠘⢦⣀⠀⠀⣀⡴⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢀⡏⠀⢰⠃⠀⠀⡰⠀⠀⠸⣷⡀⠀⠈⠉⠉⠉⠀⠀⠀⠀⣤⠚⠉⠙⢦⡀⠀
+⢸⠇⠀⢸⠀⢀⠆⡇⠀⠀⠀⢣⠳⡀⠀⠀⠀⠀⠀⠀⠀⠀⢷⣷⠄⠀⠀⠹⡄
+⢸⡆⠀⢸⠀⣼⠁⣷⠀⠀⠀⠈⢧⠈⠒⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇
+⠀⡇⠀⠀⠀⠶⠆⠹⣷⣄⠀⠀⠈⠻⣖⢤⣀⡀⠀⠀⢀⣠⣴⡿⠀⠿⠆⣰⠇
+⠀⠸⠀⠀⠀⢶⡆⠀⠀⠉⣁⠀⠀⠀⠈⠳⣄⡉⢙⢛⢛⡏⣥⠘⢗⣠⠞⠁⠀</div>
+
+  <div class="top-bar">
+    <span class="wordmark">wtf am i staring at</span>
+    <div class="live">
+      <div class="live-dot"></div>
+      <span class="live-label">live</span>
+    </div>
+  </div>
+
+  <div class="now-block">
+    <div class="eyebrow">currently on</div>
+    <div class="domain-name" id="current-domain">—</div>
+    <div class="meta-row">
+      <span class="cat-badge" id="current-cat">—</span>
+      <span class="timer-txt">on for <b id="current-timer">0:00</b></span>
+    </div>
+  </div>
+
+  <div class="list-block">
+    <div class="day-label">today</div>
+    <div id="top-sites"><div class="empty">no visits yet today</div></div>
+  </div>
+
+  <div class="bottom-bar">
+    <span class="pending"><b id="queue-count">0</b> pending sync</span>
+    <button class="sync-btn" id="flush-btn">sync</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
