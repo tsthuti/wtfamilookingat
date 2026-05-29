@@ -1,4 +1,4 @@
-# wtf am i staring at
+# wtf am i looking at
 
 a personal browsing analytics dashboard = tracks time spent per site, category breakdowns, and daily patterns — built as a chrome extension + React dashboard backed by Supabase! 
 
