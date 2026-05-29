@@ -105,3 +105,5 @@ vercel
 ```
 
 accept all defaults - Vercel detects Create React App automatically and gives you a live URL!
+
+> if you're nosy, here are my stats: https://wtfamilookingat.vercel.app/ 
